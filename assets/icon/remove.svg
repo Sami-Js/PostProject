@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-remove">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="remove" clip-path="url(#clip-remove)">
+    <rect width="32" height="32" fill="#fff"/>
+    <rect id="Rectangle_19" data-name="Rectangle 19" width="32" height="32" rx="7" fill="#c14141"/>
+    <text id="trash001_-_E062" data-name="trash001 - E062" transform="translate(16 26)" fill="#fff" font-size="11" font-family="IkonoDemoL-4, Ikono Demo L"><tspan x="-5.61" y="0"></tspan></text>
+  </g>
+</svg>

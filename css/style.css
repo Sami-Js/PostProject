@@ -1,0 +1,292 @@
+@font-face {
+  src: url(../assets/font/Nunito-Regular.ttf);
+  font-family: 'Nunito-Regular';
+}
+
+@font-face {
+  src: url(../assets/font/Nunito-SemiBold.ttf);
+  font-family: 'Nunito-SemiBold';
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+.navbar {
+  background-color: #F8F8F8;
+}
+
+.navbar a {
+  color: black !important;
+}
+
+#content-forms {
+  margin-top: 29px;
+}
+
+#content-forms .container_information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  font-family: "Nunito-Regular";
+}
+
+#content-forms .container_information .progress_steps {
+  padding: 1.8rem;
+  padding-top: 7rem;
+  counter-reset: number;
+  margin-right: 5vw;
+}
+
+#content-forms .container_information .progress_steps li {
+  list-style: none;
+  position: relative;
+  margin: 1rem auto 3rem;
+  color: #AAA;
+  z-index: 10;
+}
+
+#content-forms .container_information .progress_steps li::before {
+  counter-increment: number;
+  content: counter(number);
+  width: 30px;
+  display: inline-block;
+  -webkit-transform: translateX(-30px);
+          transform: translateX(-30px);
+  background-color: #AAA;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+}
+
+#content-forms .container_information .progress_steps li:not(:nth-child(8))::after {
+  position: absolute;
+  content: '';
+  left: -16px;
+  top: 0;
+  height: 80px;
+  width: 2px;
+  background-color: #AAA;
+  z-index: -1;
+}
+
+#content-forms .container_information .progress_steps li.active::before, #content-forms .container_information .progress_steps li.active::after {
+  background-color: #4152c1 !important;
+}
+
+#content-forms .container_information .progress_steps li.active {
+  color: #4152c1 !important;
+  font-family: "Nunito-SemiBold";
+}
+
+#content-forms .container_information .progress_steps li.success::before, #content-forms .container_information .progress_steps li.success::after {
+  background-color: #30BB5A !important;
+}
+
+#content-forms .container_information .progress_steps li.success {
+  color: #30BB5A !important;
+  font-family: "Nunito-SemiBold";
+}
+
+#content-forms .container_information .forms_data {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  padding: 1.8rem 1rem;
+}
+
+#content-forms .container_information .forms_data .container-forms {
+  max-width: 60rem;
+  position: relative;
+  margin: 2rem auto;
+  margin-right: 1vw;
+  border: 1px solid #e6e6e6;
+  border-top: none;
+  background-color: #fff;
+}
+
+.header-address {
+  padding: 1.8rem 5rem;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.header-address h3 {
+  font-size: 26px !important;
+  font-family: "Nunito-SemiBold";
+  margin: 0 !important;
+}
+
+.header-address .bar-steps {
+  height: 4px;
+  border-radius: 2px;
+  background: #4152c1;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+}
+
+.input-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 5rem;
+}
+
+.input-2 .input_style {
+  padding: 0;
+  width: 100%;
+}
+
+.input-2 .input_style:nth-child(1) {
+  padding-right: 1rem;
+}
+
+.input-2 .input_style:nth-child(2) {
+  padding-left: 1rem;
+}
+
+.input_style {
+  padding: 0 5rem;
+  margin-bottom: 20px;
+}
+
+.input_style label, .input_style .form-control {
+  width: 100%;
+  font-family: "Nunito-SemiBold";
+}
+
+.input_style .address-inp {
+  margin-bottom: 0;
+}
+
+.input_style textarea {
+  resize: vertical;
+  margin-top: 5px;
+}
+
+.radio, .input_style .radio_style {
+  margin: .5rem 0;
+}
+
+.radio [type="radio"], .input_style .radio_style [type="radio"] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  background-color: white;
+  border: 1px solid #AAA;
+  color: #615e5e;
+  display: inline-block;
+  padding: .355rem 1.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.radio [type="radio"]::after, .input_style .radio_style [type="radio"]::after {
+  content: attr(data-value);
+  text-transform: capitalize;
+}
+
+.radio [type="radio"]:checked, .input_style .radio_style [type="radio"]:checked, .radio [type="radio"]:hover, .input_style .radio_style [type="radio"]:hover {
+  background-color: #4152c1;
+  color: white;
+}
+
+.input_style .radio_style .more_info {
+  display: none;
+}
+
+.input_style .radio_style [data-value="yes"]:checked ~ .more_info {
+  display: block;
+}
+
+.btns {
+  margin-top: 3rem;
+  width: 100%;
+  padding: 2rem 5rem;
+  border-top: 1px solid #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.btns button {
+  padding: .5rem 2rem;
+  border-radius: 4px;
+  outline: none;
+  background-color: #4152c1;
+  color: white;
+  border: none;
+}
+
+.btns button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.btns button:nth-child(2) {
+  padding: .6rem 2.6em;
+}
+
+.address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 0;
+  padding: 0 5rem;
+}
+
+.address .btn-add {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background-color: transparent;
+  color: #4152c1;
+  font-family: "Nunito-SemiBold";
+  outline: none;
+  -webkit-transition: -webkit-transform .1s;
+  transition: -webkit-transform .1s;
+  transition: transform .1s;
+  transition: transform .1s, -webkit-transform .1s;
+}
+
+.address .btn-add:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.address .btn-add .text {
+  margin-right: 5px;
+}
+
+.address h4 {
+  color: #4152c1;
+  border-bottom: 3px solid #AAA;
+}
+/*# sourceMappingURL=style.css.map */

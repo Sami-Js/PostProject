@@ -1,0 +1,257 @@
+@import '../css/variable.scss';
+
+html , body {
+    width: 100% ;
+    height: 100%;
+    background-color: $bgColor ;
+    color: black ;
+}
+
+// navbar 
+.navbar{
+    background-color: $bgColor ;
+    a{
+        color: black !important ;
+    }
+}
+
+// main content 
+#content-forms{
+margin-top: 29px ;
+.container_information{
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    font-family: $fontReg;
+    // proggress 
+    .progress_steps{
+        padding: 1.8rem ;
+        padding-top: 7rem;
+        counter-reset: number ;
+        margin-right: 5vw ;
+        li{
+            list-style: none ;
+            position: relative;
+            margin: 1rem auto 3rem ;
+            color: $borderInput ;
+            z-index: 10;
+            &::before{
+                counter-increment: number ;
+                content: counter(number);
+                width: 30px ;
+                display: inline-block;
+                transform: translateX(-30px);
+                background-color: $borderInput ;
+                border-radius: 50% ;
+                color: white ;
+                text-align: center ;
+                line-height: 30px ;
+            }
+
+            &:not(:nth-child(8))::after{
+                position: absolute;
+                content: '';
+                left: -16px ;
+                top: 0;
+                height: 80px ;
+                width: 2px ;
+                background-color: $borderInput ;
+                z-index: -1;
+            }
+
+            &.active::before , &.active::after{
+                background-color: $mainColor !important ;
+            }
+            &.active{
+                color: $mainColor !important;
+                font-family: $fontBold ;
+            }
+
+            &.success::before , &.success::after{
+                background-color: $success !important ;
+            }
+            &.success{
+                color: $success !important;
+                font-family: $fontBold ;
+            }
+            
+        }
+
+        
+    }
+    .forms_data{
+        flex : 1 ;
+        width: 100% ;
+        padding: 1.8rem 1rem ;
+       .container-forms{
+        max-width: 60rem ;
+        position: relative;
+        margin: 2rem auto;
+        margin-right: 1vw;
+        border: 1px solid $borderColor ;
+        border-top: none;
+        // margin: 0 auto ;
+        background-color: #fff;
+       }
+    }
+}
+}
+
+
+// main classes 
+.header-address{
+    padding: 1.8rem 5rem;
+    border: 1px solid $borderColor ;
+    margin-bottom: 1.5rem;
+    position: relative;
+    h3{
+        font-size: $mainAddress !important ;
+        font-family: $fontBold;
+        margin: 0 !important ;
+    }
+
+    .bar-steps{
+        height: 4px ;
+        border-radius: 2px ;
+        background: $mainColor ;
+        position: absolute;
+        bottom: -5px ;
+        left: 0;
+        transition: width .3s ;
+    }
+    
+}
+
+.input-2{
+    display: flex;
+    padding: 0 5rem ;
+    .input_style{
+        padding: 0 ;
+        width: 100% ;
+    }
+    .input_style:nth-child(1){
+        padding-right: 1rem ;
+    }
+
+    .input_style:nth-child(2){
+        padding-left: 1rem ;
+    }
+}
+
+
+.input_style{
+    padding: 0 5rem ;
+    margin-bottom: 20px ;
+    label , .form-control{
+        width: 100% ;
+        font-family: $fontBold;
+    }
+    .address-inp{
+        margin-bottom: 0 ;
+    }
+
+    textarea{
+        resize: vertical;
+        margin-top: 5px ;
+    }
+
+    
+
+}
+
+// radioStyle 
+.radio{
+    margin: .5rem 0 ;
+    [type="radio"]{
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: white;
+        border: 1px solid $borderInput;
+        color: #615e5e;
+        display: inline-block;
+        padding: .355rem 1.5rem ;
+        border-radius: 3px ;
+        cursor: pointer;
+        margin-right: 10px ;
+        &::after{
+            content: attr(data-value);
+            text-transform: capitalize;
+        }
+
+        &:checked , &:hover{
+            background-color: $mainColor;
+            color: white ;
+        }
+    }
+
+    
+}
+
+
+
+.input_style{
+    .radio_style{
+        @extend .radio ;
+        .more_info{
+            display: none ;
+        }
+
+        [data-value="yes"]:checked ~ .more_info{
+            display: block;
+        }
+    }
+}
+
+
+.btns{
+    margin-top: 3rem;
+    width: 100% ;
+    padding: 2rem 5rem ;
+    border-top: 1px solid $borderColor;
+    display: flex;
+    justify-content: space-between;
+    button{
+        padding: .5rem 2rem;
+        border-radius: 4px ;
+        outline: none ;
+        background-color: $mainColor ;
+        color: white ;
+        border: none ;
+        &:active{
+            transform: scale(.98);
+        }
+    }
+
+    button:nth-child(2){
+        padding: .6rem 2.6em ;
+    }
+}
+
+
+.address{
+   @include flexer(flex , space-between , center );
+    margin: 1rem 0 ;
+    padding: 0 5rem ;
+    .btn-add{
+     appearance: none;
+     -webkit-appearance: none ;
+     border: none ;
+     background-color: transparent ;
+     color: $mainColor;
+     font-family: $fontBold ;
+     outline: none ;
+     transition: transform .1s;
+     &:hover{
+         transform: scale(1.1);
+     }
+
+     .text{
+         margin-right: 5px ;
+     }
+    }
+
+    h4{
+        color: $mainColor;
+        border-bottom: 3px solid #AAA ;
+    }
+}

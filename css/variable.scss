@@ -1,0 +1,35 @@
+@font-face {
+    src: url(../assets/font/Nunito-Regular.ttf);
+    font-family: 'Nunito-Regular';
+}
+@font-face {
+    src: url(../assets/font/Nunito-SemiBold.ttf);
+    font-family: 'Nunito-SemiBold';
+}
+
+
+
+
+// main variable 
+
+// colors : 
+$bgColor: #F8F8F8  ;
+$mainColor : #4152c1;
+$borderColor : #e6e6e6 ;
+$success : #30BB5A ;
+$borderInput : #AAA ;
+
+// size 
+$label: 20px ;
+$mainAddress : 26px ;
+
+// font 
+$fontBold : 'Nunito-SemiBold' ;
+$fontReg : 'Nunito-Regular' ;
+
+// function 
+@mixin flexer($name , $justify , $align) {
+    display: $name;
+    justify-content: $justify;
+    align-items: $align;
+}
