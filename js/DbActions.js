@@ -3,49 +3,42 @@ var esqID = ""
 var url = 'http://localhost:5001/api';
 //PATHS
 var paths = {
-    "rawM": "/rawM",
-    "aux": "/aux",
-    "Products": "/Products",
-    "HazardousMaterials": "/HazardousMaterials",
-    "Fuels": "/Fuels",
-    "AirEmissionsPointSources": "/AirEmissionsPointSources",
-    "FugitiveAirEmissions": "/FugitiveAirEmissions",
-    "WaterConsumption": "/WaterConsumption",
-    "EffluentWastewater": "/EffluentWastewater",
-    "SolidLiquidWaste": "/SolidLiquidWaste",
-    "Noise": "/Noise",
-    "Flare": "/Flare",
-    "Incinerator": "/Incinerator",
-    "LoadUnload": "/LoadUnload",
-    "DredgingOperations": "/DredgingOperations",
-    "OtherInformation": "/OtherInformation",
+    "rawM": "rawMaterials",
+    "aux": "auxiliariesMaterials",
+    "Products": "products",
+    "HazardousMaterials": "hazardousMaterials",
+    "Fuels": "fuels",
+    "AirEmissionsPointSources": "airEmissionsPointSources",
+    "FugitiveAirEmissions": "fugitiveAirEmissions",
+    "WaterConsumption": "waterConsumptions",
+    "EffluentWastewater": "effluentWastewaterDischarges",
+    "SolidLiquidWaste": "solidLiquidWastes",
+    "Noise": "noises",
+    "Flare": "flares",
+    "Incinerator": "incinerators",
+    "DredgingOperations": "dredgingOperations",
+    "OtherInformation": "otherInformation",
 }
 onClickSubmit()
-//Get next btn
-// btn = document.getElementById("Next")
-// btn.addEventListener('click', function () {
-//     onClickSubmit()
-// })
 function onClickSubmit() {
     try {
         data = new FormData(document.getElementById("Env"))
         var jsonBody = setupObject(data)
-        if (esqID === "")
-            esqID = postData(url + "/EnvForm", setupObject(data));
-        else
-            updateData(url + "/EnvForm", data)
-
         for (var key in paths) {
             try {
                 path = url + paths[key]
                 data = new FormData(document.getElementById(key + "Form"))
                 jsonData = setupArrayData(data, key)
-                // console.log(jsonData)
-                // postData(path, data, 1)
                 jsonBody[key] = jsonData
-            } catch{ }
+            } catch{
+                console.log("Failed to find form: ", key)
+            }
         }
         console.log(jsonBody)
+        if (esqID === "")
+            esqID = postData(url + "", jsonBody);
+        else
+            updateData(url + "", jsonBody)
     }
     catch{
         console.log(`failed submit ${path} where`)
@@ -66,14 +59,14 @@ function setupObject(data) {
     return json
 }
 //JSON OBJECT SETUP
-function setupArrayData(data, objName) {
+function setupArrayData(data) {
     var tempArr = []
     var temp = new Object()
     for (var [key, value] of data.entries()) {
         if (key == "empty") {
             tempArr.push(temp)
             temp = new Object()
-        }else{
+        } else {
             if (value == "true") {
                 value = true
             } else if (value == "false") {
@@ -111,21 +104,21 @@ function postData(path, body) {
 
 
 // var paths = {
-//     env : "/EnvForm",
-//     rawMaterials : "/rawM",
-//     aux : "/aux",
-//     products : "/Products",
-//     hazards : "/HazardousMaterials",
-//     fuels : "/Fuels",
-//     air : "/AirEmissionsPointSources",
-//     fugAir : "/FugitiveAirEmissions",
-//     water : "/WaterConsumption",
-//     effluent : "/EffluentWastewater",
-//     solid : "/SolidLiquidWaste",
-//     noise : "/Noise",
-//     flare : "/Flare",
-//     incinerator : "/Incinerator",
-//     load : "/LoadUnload",
-//     dredge : "/DredgingOperations",
-//     other : "/OtherInformation", 
+//     env : "",
+//     rawMaterials : "",
+//     aux : "",
+//     products : "",
+//     hazards : "",
+//     fuels : "",
+//     air : "",
+//     fugAir : "",
+//     water : "",
+//     effluent : "",
+//     solid : "",
+//     noise : "",
+//     flare : "",
+//     incinerator : "",
+//     load : "",
+//     dredge : "",
+//     other : "", 
 // }
