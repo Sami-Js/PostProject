@@ -20,7 +20,7 @@ var paths = {
     "DredgingOperations": "/DredgingOperations",
     "OtherInformation": "/OtherInformation",
 }
-onClickSubmit()
+// onClickSubmit()
 //Get next btn
 // btn = document.getElementById("Next")
 // btn.addEventListener('click', function () {
@@ -45,7 +45,7 @@ function onClickSubmit() {
                 jsonBody[key] = jsonData
             } catch{ }
         }
-        console.log(jsonBody)
+        // console.log(jsonBody)
     }
     catch{
         console.log(`failed submit ${path} where`)

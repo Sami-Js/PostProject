@@ -43,7 +43,7 @@ html, body {
 
 #content-forms .container_information .progress_steps {
   padding: 1.8rem;
-  padding-top: 7rem;
+  padding-top: 4rem;
   counter-reset: number;
   margin-right: 5vw;
 }
@@ -51,52 +51,63 @@ html, body {
 #content-forms .container_information .progress_steps li {
   list-style: none;
   position: relative;
-  margin: 1rem auto 3rem;
-  color: #AAA;
+  color: #b7b7b7;
+  background-color: #eaeaea;
+  -webkit-transition: background-color .3s , color .3s;
+  transition: background-color .3s , color .3s;
   z-index: 10;
 }
 
-#content-forms .container_information .progress_steps li::before {
+#content-forms .container_information .progress_steps li:not(:nth-child(1))::before {
   counter-increment: number;
-  content: counter(number);
-  width: 30px;
+  content: counter(number) ".";
   display: inline-block;
-  -webkit-transform: translateX(-30px);
-          transform: translateX(-30px);
-  background-color: #AAA;
-  border-radius: 50%;
-  color: white;
-  text-align: center;
-  line-height: 30px;
-}
-
-#content-forms .container_information .progress_steps li:not(:nth-child(8))::after {
-  position: absolute;
-  content: '';
-  left: -16px;
-  top: 0;
-  height: 80px;
-  width: 2px;
-  background-color: #AAA;
-  z-index: -1;
-}
-
-#content-forms .container_information .progress_steps li.active::before, #content-forms .container_information .progress_steps li.active::after {
-  background-color: #4152c1 !important;
+  color: inherit;
 }
 
 #content-forms .container_information .progress_steps li.active {
-  color: #4152c1 !important;
   font-family: "Nunito-SemiBold";
-}
-
-#content-forms .container_information .progress_steps li.success::before, #content-forms .container_information .progress_steps li.success::after {
-  background-color: #30BB5A !important;
+  color: white;
+  background: #1e1eaa;
+  border: none;
+  cursor: pointer;
 }
 
 #content-forms .container_information .progress_steps li.success {
-  color: #30BB5A !important;
+  color: white;
   font-family: "Nunito-SemiBold";
+  background-color: #40ad61;
+  cursor: pointer;
+}
+
+#content-forms .container_information .progress_steps li.edit {
+  background-color: #868686;
+  position: relative;
+  color: white;
+  cursor: default;
+}
+
+#content-forms .container_information .progress_steps li.edit::after {
+  position: absolute;
+  right: 0px;
+  bottom: -2px;
+  content: 'Edit';
+  font-size: 11px;
+  padding: 1px 9px;
+  color: black;
+  font-family: "Nunito-SemiBold";
+  background-color: #969696;
+  border-radius: 3px 0 0 3px;
+}
+
+#content-forms .container_information .progress_steps .list-group-item {
+  cursor: no-drop;
+}
+
+#content-forms .container_information .progress_steps .main-item {
+  background-color: #f1f1f1;
+  color: black;
+  cursor: default;
 }
 
 #content-forms .container_information .forms_data {
@@ -243,6 +254,12 @@ html, body {
           transform: scale(0.98);
 }
 
+.btns .disabled {
+  background-color: #b1b1b1;
+  cursor: no-drop;
+  color: white;
+}
+
 .btns button:nth-child(2) {
   padding: .6rem 2.6em;
 }
@@ -261,7 +278,7 @@ html, body {
   padding: 0 5rem;
 }
 
-.address .btn-add {
+.address .btn-add, .address .btn-remove {
   -moz-appearance: none;
        appearance: none;
   -webkit-appearance: none;
@@ -276,17 +293,54 @@ html, body {
   transition: transform .1s, -webkit-transform .1s;
 }
 
-.address .btn-add:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+.address .btn-add:active, .address .btn-remove:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
-.address .btn-add .text {
+.address .btn-add .text, .address .btn-remove .text {
   margin-right: 5px;
+}
+
+.address .btn-remove {
+  color: #c14141;
 }
 
 .address h4 {
   color: #4152c1;
   border-bottom: 3px solid #AAA;
+}
+
+._modal {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+}
+
+._modal > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 50%;
+}
+
+._modal .btn {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+
+._modal .btn:active {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 /*# sourceMappingURL=style.css.map */

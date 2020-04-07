@@ -26,56 +26,71 @@ margin-top: 29px ;
     // proggress 
     .progress_steps{
         padding: 1.8rem ;
-        padding-top: 7rem;
+        padding-top: 4rem;
         counter-reset: number ;
         margin-right: 5vw ;
         li{
             list-style: none ;
             position: relative;
-            margin: 1rem auto 3rem ;
-            color: $borderInput ;
+            color: #b7b7b7 ;
+            background-color: #eaeaea  ;
+            transition: background-color .3s , color .3s  ;
             z-index: 10;
-            &::before{
+            &:not(:nth-child(1))::before{
                 counter-increment: number ;
-                content: counter(number);
-                width: 30px ;
+                content: counter(number)'.';
                 display: inline-block;
-                transform: translateX(-30px);
-                background-color: $borderInput ;
-                border-radius: 50% ;
-                color: white ;
-                text-align: center ;
-                line-height: 30px ;
+                color: inherit ;
             }
 
-            &:not(:nth-child(8))::after{
-                position: absolute;
-                content: '';
-                left: -16px ;
-                top: 0;
-                height: 80px ;
-                width: 2px ;
-                background-color: $borderInput ;
-                z-index: -1;
-            }
-
-            &.active::before , &.active::after{
-                background-color: $mainColor !important ;
-            }
             &.active{
-                color: $mainColor !important;
                 font-family: $fontBold ;
+                color: white ;
+                background: rgb(30, 30, 170) ;
+                border: none ;
+                cursor: pointer;
             }
 
-            &.success::before , &.success::after{
-                background-color: $success !important ;
-            }
             &.success{
-                color: $success !important;
+                color: white ;
                 font-family: $fontBold ;
+                background-color: $success;
+                cursor: pointer;
+            }
+
+            &.edit{
+                background-color: #868686;
+                position: relative;
+                color: white ;
+                cursor: default;
+                &::after{
+                    position: absolute ;
+                    right: 0px ;
+                    bottom: -2px ;
+                    content: 'Edit';
+                    font-size: 11px ;
+                    padding: 1px 9px ;
+                    color: black ;
+                    font-family: $fontBold;
+                    background-color: #969696 ;
+                    border-radius: 3px 0 0 3px;
+                }
             }
             
         }
+
+        .list-group-item{
+            cursor: no-drop;
+        }
+        
+        .main-item{
+            background-color:#f1f1f1;
+            color: black ;
+            cursor: default ;
+        }
+
+        
+
 
         
     }
@@ -222,6 +237,12 @@ margin-top: 29px ;
         }
     }
 
+    .disabled{
+        background-color: #b1b1b1;
+        cursor: no-drop;
+        color: white;
+    }
+
     button:nth-child(2){
         padding: .6rem 2.6em ;
     }
@@ -232,7 +253,7 @@ margin-top: 29px ;
    @include flexer(flex , space-between , center );
     margin: 1rem 0 ;
     padding: 0 5rem ;
-    .btn-add{
+    .btn-add , .btn-remove{
      appearance: none;
      -webkit-appearance: none ;
      border: none ;
@@ -241,8 +262,8 @@ margin-top: 29px ;
      font-family: $fontBold ;
      outline: none ;
      transition: transform .1s;
-     &:hover{
-         transform: scale(1.1);
+     &:active{
+         transform: scale(.98);
      }
 
      .text{
@@ -250,8 +271,41 @@ margin-top: 29px ;
      }
     }
 
+    .btn-remove{
+        color: #c14141 ;
+    }
+
     h4{
         color: $mainColor;
         border-bottom: 3px solid #AAA ;
+    }
+}
+
+
+// modal style 
+._modal{
+    background-color: rgba(0,0,0,.2);
+    position: fixed;
+    width: 100% ;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100% ;
+    & > * {
+        position: absolute;
+        top: 50% ;
+        left: 50% ;
+        transform: translate(-50% , -50% );
+        width: 100% ;
+        height: 50% ;
+    }
+
+    .btn{
+        box-shadow: none ;
+        border: none ;
+        &:active{
+            box-shadow: none !important ;
+            transform: scale(.98);
+        }
     }
 }

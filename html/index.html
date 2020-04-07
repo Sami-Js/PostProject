@@ -32,16 +32,17 @@
         <div class="container_information">
             <!-----------------------------------------------------  Required Steps ----------------------------------------------------->
             <div class="progress_steps">
-                <ul class="parent_progress">
+                <ul class="list-group">
                     <!-- we have two classess : success and active -->
-                    <li class="item active">Facility Information</li>
-                    <li class="item">Raw Materials/Products</li>
-                    <li class="item">Hazardous Materials</li>
-                    <li class="item">Fuels/Air Emissions </li>
-                    <li class="item">Fugitive Emissions</li>
-                    <li class="item">Effluent/ Wastewater</li>
-                    <li class="item">Noise/Flare</li>
-                    <li class="item">Other Information</li>
+                    <li class="list-group-item main-item">Required Steps :</li>
+                    <li class="list-group-item active">Facility Information</li>
+                    <li class="list-group-item">Raw Materials/Products</li>
+                    <li class="list-group-item">Hazardous Materials</li>
+                    <li class="list-group-item">Fuels/Air Emissions </li>
+                    <li class="list-group-item">Fugitive Emissions</li>
+                    <li class="list-group-item">Effluent/ Wastewater</li>
+                    <li class="list-group-item">Noise/Flare</li>
+                    <li class="list-group-item">Other Information</li>
                 </ul>
             </div>
             <!----------------------------------------------------- all forms Here  ----------------------------------------------------->
@@ -298,7 +299,7 @@
 
                             <div class="input_style">
                                 <label class="address-inp">Raw Material/Feedstock</label>
-                                <input type="text" name="materialF" class="form-control" value="material">
+                                <input type="text" name="materialF" class="form-control">
                             </div>
                             <div class="input-2">
                                 <div class="input_style">
@@ -430,11 +431,11 @@
 
                     <!------------------------------------- Form 3 Hazardous Materials ------------------------------------->
                     <div id="container-form3" class="d-none">
+                        <div class="header-address">
+                            <h3>Hazardous Materials</h3>
+                            <span class="bar-steps"></span>
+                        </div>
                         <form name="HazardousMaterialsForm" id="HazardousMaterialsForm" class="form_group">
-                            <div class="header-address">
-                                <h3>Hazardous Materials</h3>
-                                <span class="bar-steps"></span>
-                            </div>
                             <div class="address">
                                 <h4>1.Hazardous </h4>
                                 <button class="btn-add">
@@ -487,7 +488,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!-- step 1 -->
-                        <form name="FuelsForm" class="d-none" id="FuelsForm">
+                        <form name="FuelsForm" class="" id="FuelsForm">
                             <div class="address">
                                 <h4>1.Fuels</h4>
                                 <button class="btn-add">
@@ -529,7 +530,7 @@
                         </form>
 
                         <!-- Step 2 -->
-                        <form name="AirEmissionsPointSourcesForm" id="AirEmissionsPointSourcesForm">
+                        <form name="AirEmissionsPointSourcesForm" class="d-none" id="AirEmissionsPointSourcesForm">
                             <div class="address">
                                 <h4>1.Air Emissions</h4>
                                 <button class="btn-add">
@@ -643,7 +644,7 @@
                             <input type="text" hidden name="empty">
                         </form>
                         <!---------------------------------------------  step 2 --------------------------------------------->
-                        <form name="WaterConsumptionForm" id="WaterConsumptionForm">
+                        <form name="WaterConsumptionForm" class="d-none" id="WaterConsumptionForm">
                             <div class="address">
                                 <h4>1.Water Consumption :</h4>
                                 <button class="btn-add">
@@ -703,7 +704,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!--------------------- step 1 -------------------------->
-                        <form name="EffluentWastewaterForm" class="d-none" id="EffluentWastewaterForm">
+                        <form name="EffluentWastewaterForm" class="" id="EffluentWastewaterForm">
                             <div class="address">
                                 <h4>1.Efﬂuent/ Wastewater Discharges :</h4>
                                 <button class="btn-add">
@@ -771,7 +772,7 @@
                         </form>
 
                         <!-- step 2 -->
-                        <form name="SolidLiquidWasteForm" id="SolidLiquidWasteForm">
+                        <form name="SolidLiquidWasteForm" class="d-none" id="SolidLiquidWasteForm">
                             <div class="address">
                                 <h4>1.Solid/Liquid Waste (Hazardous and Non Hazardous) :</h4>
                                 <button class="btn-add">
@@ -935,28 +936,25 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!-- STEP 1 -->
-                        <div class="info d-none">
-                            <form name="DredgingOperationsForm" id="DredgingOperationsForm" class="form_group">
-                                <div class="address">
-                                    <h4>Dredging Operations </h4>
-                                </div>
-                                <div class="input_style">
-                                    <label class="address-inp">Does the facility construction involve any “Dredging”
-                                        operation ?
-                                    </label>
-                                    <div class="radio_style">
-                                        <input type="radio" data-value="Yes" value="true" name="q16">
-                                        <input type="radio" data-value="No" value="false" name="q16">
-                                        <div class="more_info">
-                                            <small class="text-muted">
-                                                Provide a list of the operations
-                                            </small>
-                                            <textarea class="form-control" name="listThem" rows="3"></textarea>
-                                        </div>
+                        <form name="DredgingOperationsForm" id="DredgingOperationsForm" class="form_group">
+                            <div class="address">
+                                <h4>Dredging Operations </h4>
+                            </div>
+                            <div class="input_style">
+                                <label class="address-inp">Does the facility construction involve any “Dredging”
+                                    operation ?
+                                </label>
+                                <div class="radio_style">
+                                    <input type="radio" data-value="Yes" value="true" name="q16">
+                                    <input type="radio" data-value="No" value="false" name="q16">
+                                    <div class="more_info">
+                                        <small class="text-muted">
+                                            Provide a list of the operations
+                                        </small>
+                                        <textarea class="form-control" name="listThem" rows="3"></textarea>
                                     </div>
                                 </div>
-                            </form>
-                            <form name="DredgingOperationsForm" id="DredgingOperationsForm" class="form_group"></form>
+                            </div>
                             <div class="input_style">
                                 <label class="address-inp">Vehicle maintenance on site</label>
                                 <div class="radio">
@@ -988,9 +986,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                         <!-- Step 2 -->
-                        <div class="info">
+                        <form class="d-none">
                             <div class="input_style">
                                 <label class="address-inp">Underground storage tanks</label>
                                 <div class="radio_style">
@@ -1042,14 +1040,13 @@
                                 <label class="address-inp">Additional Information</label>
                                 <textarea class="form-control" name="additionalInformation" rows="3"></textarea>
                             </div>
-                        </div>
                         </form>
                     </div>
 
 
                     <!-- container btns next , previous -->
                     <div class="btns">
-                        <button id="prev">Previous</button>
+                        <button id="prev" class="disabled">Previous</button>
                         <button id="next">Next</button>
                     </div>
                 </div>
@@ -1058,8 +1055,23 @@
     </main>
 
 
-
-
+    <!-- Modal popUp -->
+    <div class="_modal d-none">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Delete Section</h5>
+            </div>
+            <div class="modal-body">
+              <p>are you sure remove this section </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -1071,6 +1083,8 @@
     <!-- Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/popper-utils.min.js.map"></script>
     <script src="../js/DbActions.js"></script>
+    <!-- script DOM -->
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
