@@ -32,7 +32,6 @@ function forwardSlide() {
         updateClass(arrayElement, currentParent, 'd-none');
         Effect(slide[currentChild]);
         updateClass(slide, currentChild, 'd-none');
-        console.log(slide)
         return;
     }
 
