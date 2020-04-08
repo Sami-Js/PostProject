@@ -9,7 +9,7 @@ let currentParent = 0;
 // counter switch slide inside main slide 
 let currentChild = 0;
 // main variable to save child
-let slide;
+let slide = arrayElement[currentParent].querySelectorAll('form > section'); 
 
 
 
@@ -24,13 +24,15 @@ function forwardSlide() {
     
     if (currentParent >= arrayElement.length - 1 && currentChild >= slide.length - 1) return;
 
-    updateChildren();
     if (currentChild >= slide.length - 1) {
         ++currentParent;
+        updateChildren();
         currentChild = 0;
         progress();
         updateClass(arrayElement, currentParent, 'd-none');
+        Effect(slide[currentChild]);
         updateClass(slide, currentChild, 'd-none');
+        console.log(slide)
         return;
     }
 
@@ -40,6 +42,8 @@ function forwardSlide() {
     if(currentChild == 1 && currentParent == 0 ) prev.classList.remove('disabled');
     // switch text btn 
     if(currentChild == slide.length - 1 && currentParent == arrayElement.length - 1 ) this.innerHTML = "Submit"
+    // add effect remove Effect 
+    Effect(slide[currentChild]);
     // and set another element 
     updateClass(slide, currentChild, 'd-none');
 
@@ -58,6 +62,7 @@ function backwardSlide() {
         updateClass(steps , currentParent , 'edit' , false );
         currentChild = slide.length - 1;
         updateClass(arrayElement, currentParent, 'd-none');
+        Effect(slide[currentChild]);
         updateClass(slide, currentChild, 'd-none');
         return;
     }
@@ -65,7 +70,9 @@ function backwardSlide() {
     --currentChild;
     if(currentChild == 0 && currentParent == 0 ) this.classList.add('disabled');
      // switch text btn 
-    if(currentChild < slide.length - 1 ) next.innerHTML = "Next"
+    if(currentChild < slide.length - 1 ) next.innerHTML = "Next";
+    // add effect
+    Effect(slide[currentChild]);
     updateClass(slide, currentChild, 'd-none');
 }
 
@@ -105,6 +112,7 @@ steps.forEach((element , index , arrayProgress) => element.addEventListener('cli
     updateChildren();
     updateClass(arrayElement , currentParent , 'd-none' , );
     updateClass(slide, currentChild, 'd-none' , );
+    Effect(slide[currentChild]);
 
     if(currentParent >= arrayElement.length - 1){
         next.innerHTML = 'Submit';
@@ -136,6 +144,17 @@ steps.forEach((element , index , arrayProgress) => element.addEventListener('cli
 
 
 // main method to use for global program 
+
+// method effect
+function Effect(name){
+    name.insertAdjacentHTML('afterbegin' , '<div class="_opacity"></div>');
+    let elm = name.querySelector('._opacity');
+    setTimeout(() => elm.style.opacity = 0 , 200 );
+    setTimeout(() => elm.remove(), 500 );
+}
+
+
+
 function updateChildren() {
     if (currentParent == 0) {
         slide = arrayElement[currentParent].querySelectorAll('form > section');

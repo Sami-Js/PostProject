@@ -343,4 +343,21 @@ html, body {
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
 }
+
+._form {
+  position: relative;
+}
+
+._form ._opacity {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background-color: white;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
 /*# sourceMappingURL=style.css.map */
