@@ -158,12 +158,14 @@ function updateClass(elm, current, nameClass, value = true) {
 
 // func add new Table 
 const btns = document.querySelectorAll('.btn-add');
+// btn save element clicked remove 
+let elementRemove ;
 
 btns.forEach((btn) => btn.addEventListener('click' , function (e){
     e.preventDefault();
     const parentBtn = this.parentElement.parentElement ;
     // length table because select how many tables inside form 
-    if(parentBtn.querySelectorAll('section').length == 0){
+    if(parentBtn.querySelectorAll('.new_table').length == 0){
         var lengthChild = 2 ;
          // create element beacuse switch text to NewElem
         var innerParent = parentBtn.innerHTML ;
@@ -173,22 +175,57 @@ btns.forEach((btn) => btn.addEventListener('click' , function (e){
     }
    
     let newElement = document.createElement('section');
+    newElement.className = "new_table";
     newElement.innerHTML = innerParent ;
     // address switch 
     let address = newElement.querySelector('.address');
-    address.children[0].innerHTML = lengthChild + '. ' + address.children[0].innerHTML.substring(2);
+    address.children[0].innerHTML = `${lengthChild}.${parentBtn.querySelector('.address:nth-child(1) h4').innerHTML.substring(2)}`;
     // btn remove 
     let button = address.children[1];
     button.className = 'btn-remove'
     button.children[0].innerHTML = `Remove`;
     button.children[1].src = '../assets/icon/remove.svg';
 
-
     parentBtn.appendChild(newElement);
+    
+   let btnsRemove = document.querySelectorAll('.btn-remove');
+   for(let i = 0 ; i < btnsRemove.length ; i++ ){
+       btnsRemove[i].onclick = function (e){
+           e.preventDefault();
+           $('Modal').classList.remove('d-none');
+           // save this in global value ;
+           elementRemove = this.parentElement.parentElement ;
+
+       }
+   }
+}));
 
 
+// btns save change for remove table 
+$('save').onclick = function (){
+    // first save main parent because reset address numbers
+    let parentElm = elementRemove.parentElement;
+    // call all new tables
+    let Tables = [...parentElm.querySelectorAll('.new_table')];
+    // index element Removed because reset num next tables
+    let indexElmRemove = Tables.findIndex((e) => e == elementRemove );
+    // remove element
+    elementRemove.remove();
+    // hide modal 
+    $('Modal').classList.add('d-none');
+    for(let i = indexElmRemove ; i <= Tables.length -  1 ; i++ ){
+        let address =  Tables[i].children[0].children[0]; 
+        address.innerHTML = `
+        ${i + 1}.${document.querySelector('.address h4').innerHTML.substring(2)}`;
+    }
+    
 
-}))
+}
+
+
+$('close').onclick = function (){
+    $('Modal').classList.add('d-none')
+}
 
 
 
