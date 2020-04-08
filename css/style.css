@@ -24,28 +24,30 @@ html, body {
 }
 
 #content-forms {
-  margin-top: 29px;
+  margin-top: 3rem;
 }
 
 #content-forms .container_information {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
   font-family: "Nunito-Regular";
 }
 
 #content-forms .container_information .progress_steps {
-  padding: 1.8rem;
-  padding-top: 4rem;
+  padding-top: 4.5rem;
+  margin-right: 1rem;
+  min-width: 15rem;
   counter-reset: number;
-  margin-right: 5vw;
 }
 
 #content-forms .container_information .progress_steps li {
@@ -105,31 +107,30 @@ html, body {
 }
 
 #content-forms .container_information .progress_steps .main-item {
-  background-color: #f1f1f1;
-  color: black;
+  background-color: #636363;
+  color: white;
   cursor: default;
+  font-family: "Nunito-SemiBold";
 }
 
-#content-forms .container_information .forms_data {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: 100%;
+.forms_data {
+  width: 60rem;
+  max-width: 65rem;
   padding: 1.8rem 1rem;
+  height: 100%;
 }
 
-#content-forms .container_information .forms_data .container-forms {
-  max-width: 60rem;
+.forms_data .container-forms {
   position: relative;
-  margin: 2rem auto;
-  margin-right: 1vw;
   border: 1px solid #e6e6e6;
   border-top: none;
   background-color: #fff;
+  min-height: 50rem;
+  width: 100%;
 }
 
 .header-address {
-  padding: 1.8rem 5rem;
+  padding: 1.2rem 5rem;
   border: 1px solid #e6e6e6;
   margin-bottom: 1.5rem;
   position: relative;
@@ -230,7 +231,7 @@ html, body {
 .btns {
   margin-top: 3rem;
   width: 100%;
-  padding: 2rem 5rem;
+  padding: 1.2rem 5rem;
   border-top: 1px solid #e6e6e6;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -309,6 +310,8 @@ html, body {
 .address h4 {
   color: #4152c1;
   border-bottom: 3px solid #AAA;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 ._modal {
@@ -346,6 +349,7 @@ html, body {
 
 ._form {
   position: relative;
+  height: 100%;
 }
 
 ._form ._opacity {
@@ -359,5 +363,96 @@ html, body {
   background-color: white;
   -webkit-transition: opacity .5s;
   transition: opacity .5s;
+}
+
+#container-form1 {
+  min-height: 43rem;
+}
+
+#container-form2 {
+  min-height: 43rem;
+}
+
+#container-form3 {
+  min-height: 43rem;
+}
+
+#container-form4 {
+  min-height: 43rem;
+}
+
+#container-form5 {
+  min-height: 43rem;
+}
+
+#container-form6 {
+  min-height: 43rem;
+}
+
+#container-form7 {
+  min-height: 43rem;
+}
+
+#container-form8 {
+  min-height: 43rem;
+}
+
+@media (max-width: 1000px) {
+  .header-address, .input_style, .btns, .input-2, .address {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .container_information {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .header-address h3 {
+    font-size: 21px !important;
+  }
+  .progress_steps {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .progress_steps .list-group {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .forms_data {
+    width: auto;
+  }
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .input-2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .input-2 .input_style {
+    padding: 0 !important;
+  }
+  .btn-add, .btn-remove {
+    font-size: 11px;
+  }
+  .btn-add img, .btn-remove img {
+    width: 13px;
+  }
+  .btns button {
+    padding: 0.46666em 1em !important;
+    font-size: 13px;
+  }
+  .btns button:nth-child(2) {
+    padding-right: 1.8em !important;
+    padding-left: 1.8em !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

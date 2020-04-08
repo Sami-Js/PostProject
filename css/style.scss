@@ -17,18 +17,20 @@ html , body {
 
 // main content 
 #content-forms{
-margin-top: 29px ;
+    margin-top: 3rem ;
 .container_information{
     display: flex;
-    justify-content: center;
     flex-direction: row-reverse;
+    justify-content: center;
+    height: 100% ;
+    width: 100% ;
     font-family: $fontReg;
     // proggress 
     .progress_steps{
-        padding: 1.8rem ;
-        padding-top: 4rem;
+        padding-top: 4.5rem;
+        margin-right: 1rem ;
+        min-width: 15rem ;
         counter-reset: number ;
-        margin-right: 5vw ;
         li{
             list-style: none ;
             position: relative;
@@ -84,9 +86,10 @@ margin-top: 29px ;
         }
         
         .main-item{
-            background-color:#f1f1f1;
-            color: black ;
+            background-color:#636363;
+            color: white ;
             cursor: default ;
+            font-family: $fontBold ;
         }
 
         
@@ -94,28 +97,29 @@ margin-top: 29px ;
 
         
     }
-    .forms_data{
-        flex : 1 ;
-        width: 100% ;
-        padding: 1.8rem 1rem ;
-       .container-forms{
-        max-width: 60rem ;
-        position: relative;
-        margin: 2rem auto;
-        margin-right: 1vw;
-        border: 1px solid $borderColor ;
-        border-top: none;
-        // margin: 0 auto ;
-        background-color: #fff;
-       }
-    }
 }
+}
+
+.forms_data{
+    width: 60rem ;
+    max-width: 65rem ;
+    padding: 1.8rem 1rem ;
+    height: 100% ;
+   .container-forms{
+    position: relative;
+    border: 1px solid $borderColor ;
+    border-top: none;
+    // margin: 0 auto ;
+    background-color: #fff;
+    min-height: 50rem ;
+    width: 100% ;
+   }
 }
 
 
 // main classes 
 .header-address{
-    padding: 1.8rem 5rem;
+    padding:1.2rem 5rem;
     border: 1px solid $borderColor ;
     margin-bottom: 1.5rem;
     position: relative;
@@ -221,7 +225,7 @@ margin-top: 29px ;
 .btns{
     margin-top: 3rem;
     width: 100% ;
-    padding: 2rem 5rem ;
+    padding: 1.2rem 5rem ;
     border-top: 1px solid $borderColor;
     display: flex;
     justify-content: space-between;
@@ -278,6 +282,8 @@ margin-top: 29px ;
     h4{
         color: $mainColor;
         border-bottom: 3px solid #AAA ;
+        font-size: 1.3rem ;
+        margin: 0 ;
     }
 }
 
@@ -313,6 +319,7 @@ margin-top: 29px ;
 
 ._form{
     position: relative;
+    height: 100% ;
     ._opacity{
         z-index: 100;
         position: absolute;
@@ -323,5 +330,77 @@ margin-top: 29px ;
         opacity: 1;
         background-color:white;
         transition: opacity .5s ;
+    }
+}
+
+
+
+@for $i from 1 through 8 {
+    #container-form#{$i}{
+       min-height: 43rem ;
+    }
+}
+
+
+
+@media (max-width : 1000px ){
+    .header-address , .input_style , .btns , .input-2 , .address{
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+
+
+@media (max-width:760px ) {
+    .container_information{
+        flex-direction: column !important;
+    }
+    .header-address h3{
+        font-size: 21px !important ;
+    }
+
+    .progress_steps{
+        width: 100%;
+        padding: 0 1rem ;
+        .list-group{
+            width: 100%;
+            margin: 0 auto ;
+        }
+    }
+
+    .forms_data{
+        width: auto ;
+    }
+
+    html{
+        font-size: 14px ;
+    }
+}
+
+
+@media (max-width: 500px ){
+    .input-2{
+        flex-direction: column ;
+        .input_style{
+            padding: 0 !important ;
+        }
+    }
+
+    .btn-add , .btn-remove{
+        font-size: 11px ;
+        img{
+            width: 13px ;
+        }
+        
+    }
+
+    .btns button{
+        padding: .46666em 1em!important ;
+        font-size: 13px ;
+    }
+
+    .btns button:nth-child(2){
+        padding-right: 1.8em !important;
+        padding-left: 1.8em !important ;
     }
 }
