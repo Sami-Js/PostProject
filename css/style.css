@@ -107,8 +107,8 @@ html, body {
 }
 
 #content-forms .container_information .progress_steps .main-item {
-  background-color: #636363;
-  color: white;
+  background-color: white;
+  color: black;
   cursor: default;
   font-family: "Nunito-SemiBold";
 }
