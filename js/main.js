@@ -232,9 +232,9 @@ $('save').onclick = function (){
     // hide modal 
     $('Modal').classList.add('d-none');
     for(let i = indexElmRemove ; i <= Tables.length -  1 ; i++ ){
-        let address =  Tables[i].children[0].children[0]; 
-        address.innerHTML = `
-        ${i + 1}.${document.querySelector('.address h4').innerHTML.substring(2)}`;
+        let mainAddress =  Tables[i].children[0].children[0];
+        mainAddress.innerHTML = `
+        ${i + 1}.${parentElm.querySelector('.address h4').innerHTML.substring(2)}`;
     }
     
 
