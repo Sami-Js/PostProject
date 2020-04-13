@@ -44,7 +44,7 @@ html, body {
 }
 
 #content-forms .container_information .progress_steps {
-  padding-top: 4.5rem;
+  padding-top: 1.7rem;
   margin-right: 1rem;
   min-width: 15rem;
   counter-reset: number;
@@ -204,7 +204,7 @@ html, body {
   border: 1px solid #AAA;
   color: #615e5e;
   display: inline-block;
-  padding: .355rem 1.5rem;
+  padding: .150rem .8rem;
   border-radius: 3px;
   cursor: pointer;
   margin-right: 10px;
@@ -224,7 +224,7 @@ html, body {
   display: none;
 }
 
-.input_style .radio_style [data-value="yes"]:checked ~ .more_info {
+.input_style .radio_style [data-value="Yes"]:checked ~ .more_info {
   display: block;
 }
 

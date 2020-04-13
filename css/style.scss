@@ -27,7 +27,7 @@ html , body {
     font-family: $fontReg;
     // proggress 
     .progress_steps{
-        padding-top: 4.5rem;
+        padding-top: 1.7rem;
         margin-right: 1rem ;
         min-width: 15rem ;
         counter-reset: number ;
@@ -188,7 +188,7 @@ html , body {
         border: 1px solid $borderInput;
         color: #615e5e;
         display: inline-block;
-        padding: .355rem 1.5rem ;
+        padding: .150rem .8rem ;
         border-radius: 3px ;
         cursor: pointer;
         margin-right: 10px ;
@@ -214,8 +214,7 @@ html , body {
         .more_info{
             display: none ;
         }
-
-        [data-value="yes"]:checked ~ .more_info{
+        [data-value="Yes"]:checked ~ .more_info{
             display: block;
         }
     }
