@@ -236,8 +236,6 @@ $('save').onclick = function (){
         address.innerHTML = `
         ${i + 1}.${document.querySelector('.address h4').innerHTML.substring(2)}`;
     }
-    
-
 }
 
 
