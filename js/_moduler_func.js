@@ -8,6 +8,7 @@ export function createElm(name, className) {
   return elm;
 }
 
+
 // func callback to variable save childs in parentSlide
 export function updateChildren(value) {
   // this func create because children in first slide is section and not first child is form
@@ -41,8 +42,6 @@ export var arrayElement = [
     $("container-form7"),
     $("container-form8"),
 ];
-
-
 
 
 // reset name Address 
