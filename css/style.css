@@ -8,7 +8,8 @@
   font-family: 'Nunito-SemiBold';
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   background-color: #F8F8F8;
@@ -55,8 +56,8 @@ html, body {
   position: relative;
   color: #b7b7b7;
   background-color: #eaeaea;
-  -webkit-transition: background-color .3s , color .3s;
-  transition: background-color .3s , color .3s;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
   z-index: 10;
 }
 
@@ -93,7 +94,7 @@ html, body {
   position: absolute;
   right: 0px;
   bottom: -2px;
-  content: 'Edit';
+  content: "Edit";
   font-size: 11px;
   padding: 1px 9px;
   color: black;
@@ -149,8 +150,8 @@ html, body {
   position: absolute;
   bottom: -5px;
   left: 0;
-  -webkit-transition: width .3s;
-  transition: width .3s;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
 }
 
 .input-2 {
@@ -178,7 +179,8 @@ html, body {
   margin-bottom: 20px;
 }
 
-.input_style label, .input_style .form-control {
+.input_style label,
+.input_style .form-control {
   width: 100%;
   font-family: "Nunito-SemiBold";
 }
@@ -193,7 +195,7 @@ html, body {
 }
 
 .radio, .input_style .radio_style {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .radio [type="radio"], .input_style .radio_style [type="radio"] {
@@ -204,7 +206,7 @@ html, body {
   border: 1px solid #AAA;
   color: #615e5e;
   display: inline-block;
-  padding: .150rem .8rem;
+  padding: 0.15rem 0.8rem;
   border-radius: 3px;
   cursor: pointer;
   margin-right: 10px;
@@ -242,7 +244,7 @@ html, body {
 }
 
 .btns button {
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   border-radius: 4px;
   outline: none;
   background-color: #4152c1;
@@ -262,7 +264,7 @@ html, body {
 }
 
 .btns button:nth-child(2) {
-  padding: .6rem 2.6em;
+  padding: 0.6rem 2.6em;
 }
 
 .address {
@@ -279,7 +281,8 @@ html, body {
   padding: 0 5rem;
 }
 
-.address .btn-add, .address .btn-remove {
+.address .btn-add,
+.address .btn-remove {
   -moz-appearance: none;
        appearance: none;
   -webkit-appearance: none;
@@ -288,19 +291,36 @@ html, body {
   color: #4152c1;
   font-family: "Nunito-SemiBold";
   outline: none;
-  -webkit-transition: -webkit-transform .1s;
-  transition: -webkit-transform .1s;
-  transition: transform .1s;
-  transition: transform .1s, -webkit-transform .1s;
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
 }
 
-.address .btn-add:active, .address .btn-remove:active {
+.address .btn-add:active,
+.address .btn-remove:active {
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
 }
 
-.address .btn-add .text, .address .btn-remove .text {
+.address .btn-add .text,
+.address .btn-remove .text {
   margin-right: 5px;
+}
+
+.address .btn-add .add,
+.address .btn-remove .add {
+  padding: .4em .6em;
+  border-radius: 4px;
+  font-size: 13px;
+  color: white;
+  background-color: #4152c1;
+  line-height: 1.2;
+}
+
+.address .btn-add .fa-trash,
+.address .btn-remove .fa-trash {
+  background-color: #c14141;
 }
 
 .address .btn-remove {
@@ -309,7 +329,7 @@ html, body {
 
 .address h4 {
   color: #4152c1;
-  border-bottom: 3px solid #AAA;
+  border-bottom: 3px solid #aaa;
   font-size: 1.3rem;
   margin: 0;
 }
@@ -361,8 +381,8 @@ html, body {
   height: 100%;
   opacity: 1;
   background-color: white;
-  -webkit-transition: opacity .5s;
-  transition: opacity .5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 #container-form1 {
@@ -398,7 +418,11 @@ html, body {
 }
 
 @media (max-width: 1000px) {
-  .header-address, .input_style, .btns, .input-2, .address {
+  .header-address,
+  .input_style,
+  .btns,
+  .input-2,
+  .address {
     padding-right: 2rem;
     padding-left: 2rem;
   }
@@ -440,11 +464,14 @@ html, body {
   .input-2 .input_style {
     padding: 0 !important;
   }
-  .btn-add, .btn-remove {
-    font-size: 11px;
+  .btn-add,
+  .btn-remove {
+    font-size: 13px;
+    font-family: "Nunito-SemiBold";
   }
-  .btn-add img, .btn-remove img {
-    width: 13px;
+  .btn-add .add,
+  .btn-remove .add {
+    font-size: 10px !important;
   }
   .btns button {
     padding: 0.46666em 1em !important;
@@ -453,6 +480,15 @@ html, body {
   .btns button:nth-child(2) {
     padding-right: 1.8em !important;
     padding-left: 1.8em !important;
+  }
+  .address {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .address h4 {
+    margin-bottom: 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 }
 /*# sourceMappingURL=style.css.map */

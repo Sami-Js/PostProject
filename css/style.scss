@@ -1,405 +1,410 @@
-@import '../css/variable.scss';
+@import "../css/variable.scss";
 
-html , body {
-    width: 100% ;
-    height: 100%;
-    background-color: $bgColor ;
-    color: black ;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: $bgColor;
+  color: black;
 }
 
-// navbar 
-.navbar{
-    background-color: $bgColor ;
-    a{
-        color: black !important ;
-    }
+// navbar
+.navbar {
+  background-color: $bgColor;
+  a {
+    color: black !important ;
+  }
 }
 
-// main content 
-#content-forms{
-    margin-top: 3rem ;
-.container_information{
+// main content
+#content-forms {
+  margin-top: 3rem;
+  .container_information {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    height: 100% ;
-    width: 100% ;
+    height: 100%;
+    width: 100%;
     font-family: $fontReg;
-    // proggress 
-    .progress_steps{
-        padding-top: 1.7rem;
-        margin-right: 1rem ;
-        min-width: 15rem ;
-        counter-reset: number ;
-        li{
-            list-style: none ;
-            position: relative;
-            color: #b7b7b7 ;
-            background-color: #eaeaea  ;
-            transition: background-color .3s , color .3s  ;
-            z-index: 10;
-            &:not(:nth-child(1))::before{
-                counter-increment: number ;
-                content: counter(number)'.';
-                display: inline-block;
-                color: inherit ;
-            }
-
-            &.active{
-                font-family: $fontBold ;
-                color: white ;
-                background: rgb(30, 30, 170) ;
-                border: none ;
-                cursor: pointer;
-            }
-
-            &.success{
-                color: white ;
-                font-family: $fontBold ;
-                background-color: $success;
-                cursor: pointer;
-            }
-
-            &.edit{
-                background-color: #868686;
-                position: relative;
-                color: white ;
-                cursor: default;
-                &::after{
-                    position: absolute ;
-                    right: 0px ;
-                    bottom: -2px ;
-                    content: 'Edit';
-                    font-size: 11px ;
-                    padding: 1px 9px ;
-                    color: black ;
-                    font-family: $fontBold;
-                    background-color: #969696 ;
-                    border-radius: 3px 0 0 3px;
-                }
-            }
-            
+    // proggress
+    .progress_steps {
+      padding-top: 1.7rem;
+      margin-right: 1rem;
+      min-width: 15rem;
+      counter-reset: number;
+      li {
+        list-style: none;
+        position: relative;
+        color: #b7b7b7;
+        background-color: #eaeaea;
+        transition: background-color 0.3s, color 0.3s;
+        z-index: 10;
+        &:not(:nth-child(1))::before {
+          counter-increment: number;
+          content: counter(number) ".";
+          display: inline-block;
+          color: inherit;
         }
 
-        .list-group-item{
-            cursor: no-drop;
-        }
-        
-        .main-item{
-            background-color:white;
-            color: black ;
-            cursor: default ;
-            font-family: $fontBold ;
+        &.active {
+          font-family: $fontBold;
+          color: white;
+          background: rgb(30, 30, 170);
+          border: none;
+          cursor: pointer;
         }
 
-        
+        &.success {
+          color: white;
+          font-family: $fontBold;
+          background-color: $success;
+          cursor: pointer;
+        }
 
+        &.edit {
+          background-color: #868686;
+          position: relative;
+          color: white;
+          cursor: default;
+          &::after {
+            position: absolute;
+            right: 0px;
+            bottom: -2px;
+            content: "Edit";
+            font-size: 11px;
+            padding: 1px 9px;
+            color: black;
+            font-family: $fontBold;
+            background-color: #969696;
+            border-radius: 3px 0 0 3px;
+          }
+        }
+      }
 
-        
+      .list-group-item {
+        cursor: no-drop;
+      }
+
+      .main-item {
+        background-color: white;
+        color: black;
+        cursor: default;
+        font-family: $fontBold;
+      }
     }
-}
+  }
 }
 
-.forms_data{
-    width: 60rem ;
-    max-width: 65rem ;
-    padding: 1.8rem 1rem ;
-    height: 100% ;
-   .container-forms{
+.forms_data {
+  width: 60rem;
+  max-width: 65rem;
+  padding: 1.8rem 1rem;
+  height: 100%;
+  .container-forms {
     position: relative;
-    border: 1px solid $borderColor ;
+    border: 1px solid $borderColor;
     border-top: none;
     // margin: 0 auto ;
     background-color: #fff;
-    min-height: 50rem ;
-    width: 100% ;
-   }
+    min-height: 50rem;
+    width: 100%;
+  }
 }
 
+// main classes
+.header-address {
+  padding: 1.2rem 5rem;
+  border: 1px solid $borderColor;
+  margin-bottom: 1.5rem;
+  position: relative;
+  h3 {
+    font-size: $mainAddress !important ;
+    font-family: $fontBold;
+    margin: 0 !important ;
+  }
 
-// main classes 
-.header-address{
-    padding:1.2rem 5rem;
-    border: 1px solid $borderColor ;
-    margin-bottom: 1.5rem;
-    position: relative;
-    h3{
-        font-size: $mainAddress !important ;
-        font-family: $fontBold;
-        margin: 0 !important ;
-    }
-
-    .bar-steps{
-        height: 4px ;
-        border-radius: 2px ;
-        background: $mainColor ;
-        position: absolute;
-        bottom: -5px ;
-        left: 0;
-        transition: width .3s ;
-    }
-    
+  .bar-steps {
+    height: 4px;
+    border-radius: 2px;
+    background: $mainColor;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+  }
 }
 
-.input-2{
-    display: flex;
-    padding: 0 5rem ;
-    .input_style{
-        padding: 0 ;
-        width: 100% ;
-    }
-    .input_style:nth-child(1){
-        padding-right: 1rem ;
-    }
+.input-2 {
+  display: flex;
+  padding: 0 5rem;
+  .input_style {
+    padding: 0;
+    width: 100%;
+  }
+  .input_style:nth-child(1) {
+    padding-right: 1rem;
+  }
 
-    .input_style:nth-child(2){
-        padding-left: 1rem ;
-    }
+  .input_style:nth-child(2) {
+    padding-left: 1rem;
+  }
 }
 
+.input_style {
+  padding: 0 5rem;
+  margin-bottom: 20px;
+  label,
+  .form-control {
+    width: 100%;
+    font-family: $fontBold;
+  }
+  .address-inp {
+    margin-bottom: 0;
+  }
 
-.input_style{
-    padding: 0 5rem ;
-    margin-bottom: 20px ;
-    label , .form-control{
-        width: 100% ;
-        font-family: $fontBold;
-    }
-    .address-inp{
-        margin-bottom: 0 ;
-    }
-
-    textarea{
-        resize: vertical;
-        margin-top: 5px ;
-    }
-
-    
-
+  textarea {
+    resize: vertical;
+    margin-top: 5px;
+  }
 }
 
-// radioStyle 
-.radio{
-    margin: .5rem 0 ;
-    [type="radio"]{
-        appearance: none;
-        -webkit-appearance: none;
-        background-color: white;
-        border: 1px solid $borderInput;
-        color: #615e5e;
-        display: inline-block;
-        padding: .150rem .8rem ;
-        border-radius: 3px ;
-        cursor: pointer;
-        margin-right: 10px ;
-        &::after{
-            content: attr(data-value);
-            text-transform: capitalize;
-        }
-
-        &:checked , &:hover{
-            background-color: $mainColor;
-            color: white ;
-        }
+// radioStyle
+.radio {
+  margin: 0.5rem 0;
+  [type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+    border: 1px solid $borderInput;
+    color: #615e5e;
+    display: inline-block;
+    padding: 0.15rem 0.8rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+    &::after {
+      content: attr(data-value);
+      text-transform: capitalize;
     }
 
-    
+    &:checked,
+    &:hover {
+      background-color: $mainColor;
+      color: white;
+    }
+  }
 }
 
-
-
-.input_style{
-    .radio_style{
-        @extend .radio ;
-        .more_info{
-            display: none ;
-        }
-        [data-value="Yes"]:checked ~ .more_info{
-            display: block;
-        }
+.input_style {
+  .radio_style {
+    @extend .radio;
+    .more_info {
+      display: none;
     }
+    [data-value="Yes"]:checked ~ .more_info {
+      display: block;
+    }
+  }
 }
 
-
-.btns{
-    margin-top: 3rem;
-    width: 100% ;
-    padding: 1.2rem 5rem ;
-    border-top: 1px solid $borderColor;
-    display: flex;
-    justify-content: space-between;
-    button{
-        padding: .5rem 2rem;
-        border-radius: 4px ;
-        outline: none ;
-        background-color: $mainColor ;
-        color: white ;
-        border: none ;
-        &:active{
-            transform: scale(.98);
-        }
+.btns {
+  margin-top: 3rem;
+  width: 100%;
+  padding: 1.2rem 5rem;
+  border-top: 1px solid $borderColor;
+  display: flex;
+  justify-content: space-between;
+  button {
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+    outline: none;
+    background-color: $mainColor;
+    color: white;
+    border: none;
+    &:active {
+      transform: scale(0.98);
     }
+  }
 
-    .disabled{
-        background-color: #b1b1b1;
-        cursor: no-drop;
-        color: white;
-    }
+  .disabled {
+    background-color: #b1b1b1;
+    cursor: no-drop;
+    color: white;
+  }
 
-    button:nth-child(2){
-        padding: .6rem 2.6em ;
-    }
+  button:nth-child(2) {
+    padding: 0.6rem 2.6em;
+  }
 }
 
-
-.address{
-   @include flexer(flex , space-between , center );
-    margin: 1rem 0 ;
-    padding: 0 5rem ;
-    .btn-add , .btn-remove{
-     appearance: none;
-     -webkit-appearance: none ;
-     border: none ;
-     background-color: transparent ;
-     color: $mainColor;
-     font-family: $fontBold ;
-     outline: none ;
-     transition: transform .1s;
-     &:active{
-         transform: scale(.98);
-     }
-
-     .text{
-         margin-right: 5px ;
-     }
+.address {
+  @include flexer(flex, space-between, center);
+  margin: 1rem 0;
+  padding: 0 5rem;
+  .btn-add,
+  .btn-remove {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background-color: transparent;
+    color: $mainColor;
+    font-family: $fontBold;
+    outline: none;
+    transition: transform 0.1s;
+    &:active {
+      transform: scale(0.98);
     }
 
-    .btn-remove{
-        color: #c14141 ;
+    .text {
+      margin-right: 5px;
     }
 
-    h4{
-        color: $mainColor;
-        border-bottom: 3px solid #AAA ;
-        font-size: 1.3rem ;
-        margin: 0 ;
+
+     .add{
+      padding: .4em .6em  ;
+      border-radius: 4px ;
+      font-size: 13px ;
+      color: white;
+      background-color: $mainColor;
+      line-height: 1.2;
     }
+
+    .fa-trash{
+      background-color: #c14141;
+    }
+  }
+
+  .btn-remove {
+    color: #c14141;
+  }
+
+  h4 {
+    color: $mainColor;
+    border-bottom: 3px solid #aaa;
+    font-size: 1.3rem;
+    margin: 0;
+  }
 }
 
+// modal style
+._modal {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+  & > * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 50%;
+  }
 
-// modal style 
-._modal{
-    background-color: rgba(0,0,0,.2);
-    position: fixed;
-    width: 100% ;
+  .btn {
+    box-shadow: none;
+    border: none;
+    &:active {
+      box-shadow: none !important ;
+      transform: scale(0.98);
+    }
+  }
+}
+
+._form {
+  position: relative;
+  height: 100%;
+  ._opacity {
+    z-index: 100;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
-    height: 100% ;
-    & > * {
-        position: absolute;
-        top: 50% ;
-        left: 50% ;
-        transform: translate(-50% , -50% );
-        width: 100% ;
-        height: 50% ;
-    }
-
-    .btn{
-        box-shadow: none ;
-        border: none ;
-        &:active{
-            box-shadow: none !important ;
-            transform: scale(.98);
-        }
-    }
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: white;
+    transition: opacity 0.5s;
+  }
 }
-
-
-._form{
-    position: relative;
-    height: 100% ;
-    ._opacity{
-        z-index: 100;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% ;
-        height: 100% ;
-        opacity: 1;
-        background-color:white;
-        transition: opacity .5s ;
-    }
-}
-
-
 
 @for $i from 1 through 8 {
-    #container-form#{$i}{
-       min-height: 43rem ;
-    }
+  #container-form#{$i} {
+    min-height: 43rem;
+  }
 }
 
-
-
-@media (max-width : 1000px ){
-    .header-address , .input_style , .btns , .input-2 , .address{
-        padding-right: 2rem;
-        padding-left: 2rem;
-    }
+@media (max-width: 1000px) {
+  .header-address,
+  .input_style,
+  .btns,
+  .input-2,
+  .address {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
 }
 
+@media (max-width: 760px) {
+  .container_information {
+    flex-direction: column !important;
+  }
+  .header-address h3 {
+    font-size: 21px !important ;
+  }
 
-@media (max-width:760px ) {
-    .container_information{
-        flex-direction: column !important;
+  .progress_steps {
+    width: 100%;
+    padding: 0 1rem;
+    .list-group {
+      width: 100%;
+      margin: 0 auto;
     }
-    .header-address h3{
-        font-size: 21px !important ;
-    }
+  }
 
-    .progress_steps{
-        width: 100%;
-        padding: 0 1rem ;
-        .list-group{
-            width: 100%;
-            margin: 0 auto ;
-        }
-    }
+  .forms_data {
+    width: auto;
+  }
 
-    .forms_data{
-        width: auto ;
-    }
-
-    html{
-        font-size: 14px ;
-    }
+  html {
+    font-size: 14px;
+  }
 }
 
-
-@media (max-width: 500px ){
-    .input-2{
-        flex-direction: column ;
-        .input_style{
-            padding: 0 !important ;
-        }
+@media (max-width: 500px) {
+  .input-2 {
+    flex-direction: column;
+    .input_style {
+      padding: 0 !important ;
     }
+  }
 
-    .btn-add , .btn-remove{
-        font-size: 11px ;
-        img{
-            width: 13px ;
-        }
-        
+  .btn-add,
+  .btn-remove {
+    font-size: 13px;
+    font-family: $fontBold;
+    .add{
+      font-size: 10px !important ;
     }
+  }
 
-    .btns button{
-        padding: .46666em 1em!important ;
-        font-size: 13px ;
-    }
+  .btns button {
+    padding: 0.46666em 1em !important ;
+    font-size: 13px;
+  }
 
-    .btns button:nth-child(2){
-        padding-right: 1.8em !important;
-        padding-left: 1.8em !important ;
-    }
+  .btns button:nth-child(2) {
+    padding-right: 1.8em !important;
+    padding-left: 1.8em !important ;
+  }
+
+  .address{
+      flex-wrap: wrap ;
+      h4{
+          margin-bottom: 10px ;
+          box-sizing: border-box;
+      }
+  }
 }
