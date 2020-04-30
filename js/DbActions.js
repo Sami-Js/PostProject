@@ -30,20 +30,26 @@ export function onClickSubmit() {
     try {
         data = new FormData(document.getElementById("Env"))
         var jsonBody = setupObject(data)
+        console.log("hi")
+
+        for (var key in paths) {
+            try {
+                data = new FormData(document.getElementById(key + "Form"))
+                jsonData = setupArrayData(data, key)
+                jsonBody[key] = jsonData
+            } catch (e)
+            {
+                console.log(e.stack)
+            }
+        }
+        console.log(jsonBody)
+<<<<<<< Updated upstream
+=======
         if (esqID === "")
             esqID = postData(url + "/EnvForm", setupObject(data));
         else
             updateData(url + "/EnvForm", data)
-
-        for (var key in paths) {
-            try {
-                path = url + paths[key]
-                data = new FormData(document.getElementById(key + "Form"))
-                jsonData = setupArrayData(data, key)
-                jsonBody[key] = jsonData
-            } catch{ }
-        }
-        console.log(jsonBody)
+>>>>>>> Stashed changes
     }
     catch{
         console.log(`failed submit ${path} where`)
@@ -63,6 +69,7 @@ function setupObject(data) {
     }
     return json
 }
+
 //JSON OBJECT SETUP
 function setupArrayData(data) {
     var tempArr = []
@@ -71,6 +78,7 @@ function setupArrayData(data) {
         if (key == "empty") {
             tempArr.push(temp)
             temp = new Object()
+<<<<<<< Updated upstream
         }else {
             if (value != ""){
                 if (value == "true") {
@@ -82,6 +90,13 @@ function setupArrayData(data) {
                     value = parseInt(value)
                 }
                 temp[key] = value
+=======
+        } else {
+            if (value == "true") {
+                value = true
+            } else if (value == "false") {
+                value = false
+>>>>>>> Stashed changes
             }
         }
     }
