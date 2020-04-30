@@ -20,13 +20,13 @@ var paths = {
     "DredgingOperations": "/DredgingOperations",
     "OtherInformation": "/OtherInformation",
 }
-// onClickSubmit()
+onClickSubmit()
 //Get next btn
 // btn = document.getElementById("Next")
 // btn.addEventListener('click', function () {
 //     onClickSubmit()
 // })
-function onClickSubmit() {
+export function onClickSubmit() {
     try {
         data = new FormData(document.getElementById("Env"))
         var jsonBody = setupObject(data)
@@ -40,12 +40,10 @@ function onClickSubmit() {
                 path = url + paths[key]
                 data = new FormData(document.getElementById(key + "Form"))
                 jsonData = setupArrayData(data, key)
-                // console.log(jsonData)
-                // postData(path, data, 1)
                 jsonBody[key] = jsonData
             } catch{ }
         }
-        // console.log(jsonBody)
+        console.log(jsonBody)
     }
     catch{
         console.log(`failed submit ${path} where`)
@@ -66,20 +64,25 @@ function setupObject(data) {
     return json
 }
 //JSON OBJECT SETUP
-function setupArrayData(data, objName) {
+function setupArrayData(data) {
     var tempArr = []
     var temp = new Object()
     for (var [key, value] of data.entries()) {
         if (key == "empty") {
             tempArr.push(temp)
             temp = new Object()
-        }else{
-            if (value == "true") {
-                value = true
-            } else if (value == "false") {
-                value = false
+        }else {
+            if (value != ""){
+                if (value == "true") {
+                    value = true
+                } else if (value == "false") {
+                    value = false
+                }
+                else if (!isNaN(value)){
+                    value = parseInt(value)
+                }
+                temp[key] = value
             }
-            temp[key] = value
         }
     }
     return tempArr

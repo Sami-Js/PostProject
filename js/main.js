@@ -8,6 +8,8 @@ import {
   Effect,
 } from "./_moduler_func.js";
 
+import { onClickSubmit } from "./DbActions";
+
 // main counter for switch slide parent
 let currentParent = 0;
 //  counter child
@@ -36,6 +38,7 @@ function forwardSlide() {
     currentParent >= arrayElement.length - 1 &&
     currentChild >= slide.length - 1
   ) {
+    console.log("submit")
     return;
   }
 
