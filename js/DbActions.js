@@ -43,13 +43,10 @@ export function onClickSubmit() {
             }
         }
         console.log(jsonBody)
-<<<<<<< Updated upstream
-=======
         if (esqID === "")
             esqID = postData(url + "/EnvForm", setupObject(data));
         else
             updateData(url + "/EnvForm", data)
->>>>>>> Stashed changes
     }
     catch{
         console.log(`failed submit ${path} where`)
@@ -78,7 +75,6 @@ function setupArrayData(data) {
         if (key == "empty") {
             tempArr.push(temp)
             temp = new Object()
-<<<<<<< Updated upstream
         }else {
             if (value != ""){
                 if (value == "true") {
@@ -90,13 +86,6 @@ function setupArrayData(data) {
                     value = parseInt(value)
                 }
                 temp[key] = value
-=======
-        } else {
-            if (value == "true") {
-                value = true
-            } else if (value == "false") {
-                value = false
->>>>>>> Stashed changes
             }
         }
     }
