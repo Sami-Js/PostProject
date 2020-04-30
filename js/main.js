@@ -8,6 +8,8 @@ import {
   Effect,
 } from "./_moduler_func.js";
 
+import { onClickNext, EnvSubmit } from "./DbActions.js";
+
 // main counter for switch slide parent
 let currentParent = 0;
 //  counter child
@@ -32,15 +34,19 @@ function doingAction(value = false) {
 
 // func slide forward
 function forwardSlide() {
+  console.log(slide[currentChild])
   if (
     currentParent >= arrayElement.length - 1 &&
     currentChild >= slide.length - 1
   ) {
     return;
   }
-
+  
+  onClickNext(currentParent, slide[currentChild])
   if (currentChild >= slide.length - 1) {
     // doingAction(++currentParent, 0);
+    if (currentParent == 0)
+    EnvSubmit()
     ++currentParent;
     currentChild = 0;
     doingAction();

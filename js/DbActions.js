@@ -1,5 +1,5 @@
 // MUST TRY TO GET ESQID FROM URL IN CASE OF UPDATED INFO
-var esqID = ""
+var esqID = 28
 var url = 'http://localhost:5001/api';
 //PATHS
 var paths = {
@@ -20,38 +20,52 @@ var paths = {
     "DredgingOperations": "/DredgingOperations",
     "OtherInformation": "/OtherInformation",
 }
-// onClickSubmit()
-//Get next btn
-// btn = document.getElementById("Next")
+// EnvSubmit()
+// OtherSubmit()
+// Get next btn
+// var btn = document.getElementById("Next")
 // btn.addEventListener('click', function () {
 //     onClickSubmit()
 // })
-function onClickSubmit() {
-    try {
-        data = new FormData(document.getElementById("Env"))
-        var jsonBody = setupObject(data)
-        if (esqID === "")
-            esqID = postData(url + "/EnvForm", setupObject(data));
-        else
-            updateData(url + "/EnvForm", data)
 
-        for (var key in paths) {
-            try {
-                path = url + paths[key]
-                data = new FormData(document.getElementById(key + "Form"))
-                jsonData = setupArrayData(data, key)
-                // console.log(jsonData)
-                // postData(path, data, 1)
-                jsonBody[key] = jsonData
-            } catch{ }
+export function EnvSubmit() {
+    try {
+        console.log("envSubmit")
+        var data = new FormData(document.getElementById("EnvForm"))
+        var jsonBody = setupObject(data)
+        console.log("envData: ", jsonBody)
+        if (esqID === "") {
+            // esqID = postData(url + "/EnvForm", setupObject(jsonBody));
+            console.log("posted")
         }
-        // console.log(jsonBody)
-    }
-    catch{
-        console.log(`failed submit ${path} where`)
-        // console.log(`Form = ${key}Form`)
-        // console.log(`Controller = ${paths[key]}`)
-    }
+
+        else {
+            // updateData(url + "/EnvForm", data)
+            console.log("updated")
+        }
+    } catch (e)
+        {console.log(e.stack)}
+}
+
+function OtherSubmit(form){
+        try {
+            console.log(form.id, "OTHER SUBMIT")
+            var path = url + paths[form.id]
+            var data = new FormData(form)
+            var jsonData = setupArrayData(data)
+            console.log(jsonData)
+            postData(path, jsonData, 1)
+            console.log("posted other")
+            // jsonBody[key] = jsonData
+        } catch (e)
+        {
+            console.log(e.stack)
+        }
+    
+}
+export function onClickNext(val, form) {
+    if (val > 0)
+        OtherSubmit(form)
 }
 
 function setupObject(data) {
@@ -66,28 +80,36 @@ function setupObject(data) {
     return json
 }
 //JSON OBJECT SETUP
-function setupArrayData(data, objName) {
+function setupArrayData(data) {
     var tempArr = []
     var temp = new Object()
     for (var [key, value] of data.entries()) {
         if (key == "empty") {
+            temp["esqId"] = esqID
             tempArr.push(temp)
             temp = new Object()
-        }else{
-            if (value == "true") {
-                value = true
-            } else if (value == "false") {
-                value = false
+        } else {
+            if (value != ""){
+                if (value == "true") {
+                    value = true
+                } else if (value == "false") {
+                    value = false
+                }
+                else if (!isNaN(value)){
+                    value = parseInt(value)
+                }
+                temp[key] = value
             }
-            temp[key] = value
         }
     }
+    console.log(tempArr)
     return tempArr
 }
 
 //SEND REQUEST BLOCK
 function postData(path, body) {
 
+try{
     var xhr = new XMLHttpRequest();
     xhr.open("POST", path, 1)
     xhr.setRequestHeader("Content-type", "application/json");
@@ -98,11 +120,16 @@ function postData(path, body) {
             console.log("fail")
         // response = xhr.responseText
         // console.log(this.responseText)
-
     }
     xhr.send(JSON.stringify(body))
+    console.log(JSON.stringify(body))
     // console.log(xhr.responseText)
     return xhr.responseText
+}
+catch (e)
+{
+    console.error("%O", e)
+}
 }
 
 //SUBMIT ARRAY OF OBJECTS TEST

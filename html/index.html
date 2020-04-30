@@ -53,7 +53,7 @@
                 <div class="container-forms">
                     <!------------------------------------- Form 1 Facility Information ------------------------------------->
                     <div id="container-form1" class="">
-                        <form name="EnvForm" id="Env" class="form_group">
+                        <form name="EnvForm" id="EnvForm" class="form_group">
                             <div class="header-address">
                                 <h3>Facility Information</h3>
                                 <span class="bar-steps"></span>
@@ -291,7 +291,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!-------------------------------------------- step 1 -------------------------------------------->
-                        <form name="rawMForm" id="rawMForm" class="_form">
+                        <form name="rawMForm" id="rawM" class="_form">
                             <div class="address">
                                 <h4>1.Raw Material</h4>
                                 <button class="btn-add">
@@ -333,15 +333,16 @@
                                 <div class="input_style">
                                     <label class="address-inp">Annual Consumption<span
                                             class="text-muted">(unit)</span></label>
-                                    <input type="text" name="annualConsumption" class="form-control">
+                                    <input type="number" name="annualConsumption" class="form-control">
                                 </div>
                             </div>
+                            <input type="number" hidden name="materialsID">
                             <input type="text" hidden name="empty">
                         </form>
                         <!-------------------------------------------- Step 2  -------------------------------------------->
-                        <form id="auxForm" name="auxForm" class="_form d-none">
+                        <form id="aux" name="auxForm" class="_form d-none">
                             <div class="address">
-                                <h4>1.Materials/Auxiliaries</h4>
+                                <h4>1.Auxiliary Materials</h4>
                                 <button class="btn-add">
                                     <span class="text">New Auxiliaries</span>
                                     <i class="fas fa-plus add"></i>
@@ -384,10 +385,11 @@
                                     <input type="text" name="aAnnualConsumption" class="form-control">
                                 </div>
                             </div>
+                            <input type="text" hidden name="aMaterialsID">
                             <input type="text" hidden name="empty">
                         </form>
                         <!-------------------------------------------- step 3------------------------------------------ -->
-                        <form name="ProductsForm" id="ProductsForm" class="_form d-none">
+                        <form name="ProductsForm" id="Products" class="_form d-none">
                             <div class="address">
                                 <h4>1.Products</h4>
                                 <button class="btn-add">
@@ -428,6 +430,7 @@
                                     <input type="text" name="maximumStorageCapacity" class="form-control">
                                 </div>
                             </div>
+                            <input type="number" hidden name="productsID">
                             <input type="text" hidden name="empty">
                         </form>
                     </div>
@@ -438,7 +441,7 @@
                             <h3>Hazardous Materials</h3>
                             <span class="bar-steps"></span>
                         </div>
-                        <form name="HazardousMaterialsForm" id="HazardousMaterialsForm" class="_form form_group">
+                        <form name="HazardousMaterialsForm" id="HazardousMaterials" class="_form form_group">
                             <div class="address">
                                 <h4>1.Hazardous </h4>
                                 <button class="btn-add">
@@ -480,6 +483,7 @@
                                     <input type="text" name="surplusDisposalMethod" class="form-control">
                                 </div>
                             </div>
+                            <input type="number" hidden name="hazardousID">
                             <input type="text" hidden name="empty">
                         </form>
                     </div>
@@ -491,7 +495,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!-- step 1 -->
-                        <form name="FuelsForm" class="_form" id="FuelsForm">
+                        <form name="FuelsForm" class="_form" id="Fuels">
                             <div class="address">
                                 <h4>1.Fuels</h4>
                                 <button class="btn-add">
@@ -529,12 +533,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="number" hidden name="fuelsID">
                             <input type="text" hidden name="empty">
                         </form>
 
                         <!-- Step 2 -->
                         <form name="AirEmissionsPointSourcesForm" class="_form d-none"
-                            id="AirEmissionsPointSourcesForm">
+                            id="AirEmissionsPointSources">
                             <div class="address">
                                 <h4>1.Air Emissions</h4>
                                 <button class="btn-add">
@@ -586,6 +591,7 @@
                                 </label>
                                 <input type="text" name="emissionControl" class="form-control">
                             </div>
+                            <input type="number" hidden name="airEmissionsPointID">
                             <input type="text" hidden name="empty">
                         </form>
                     </div>
@@ -598,7 +604,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!---------------------------------------------  step 1 --------------------------------------------->
-                        <form name="FugitiveAirEmissionsForm" class="_form" id="FugitiveAirEmissionsForm">
+                        <form name="FugitiveAirEmissionsForm" class="_form" id="FugitiveAirEmissions">
                             <div class="address">
                                 <h4>1.Fugitive Air Emissions:</h4>
                                 <button class="btn-add">
@@ -645,10 +651,11 @@
                                 </label>
                                 <input type="number" name="controlledEmissions" class="form-control">
                             </div>
+                            <input type="number" hidden name="fugitiveAirID">
                             <input type="text" hidden name="empty">
                         </form>
                         <!---------------------------------------------  step 2 --------------------------------------------->
-                        <form name="WaterConsumptionForm" class="_form d-none" id="WaterConsumptionForm">
+                        <form name="WaterConsumptionForm" class="_form d-none" id="WaterConsumption">
                             <div class="address">
                                 <h4>1.Water Consumption :</h4>
                                 <button class="btn-add">
@@ -698,6 +705,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="number" hidden name="waterConsumptionID">
                             <input type="text" hidden name="empty">
                         </form>
                     </div>
@@ -708,7 +716,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!--------------------- step 1 -------------------------->
-                        <form name="EffluentWastewaterForm" class="_form" id="EffluentWastewaterForm">
+                        <form name="EffluentWastewaterForm" class="_form" id="EffluentWastewater">
                             <div class="address">
                                 <h4>1.Efﬂuent/ Wastewater </h4>
                                 <button class="btn-add">
@@ -772,11 +780,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="number" hidden name="effluentWastewaterDischargesID">
                             <input type="text" hidden name="empty">
                         </form>
 
                         <!-- step 2 -->
-                        <form name="SolidLiquidWasteForm" class="_form d-none" id="SolidLiquidWasteForm">
+                        <form name="SolidLiquidWasteForm" class="_form d-none" id="SolidLiquidWaste">
                             <div class="address">
                                 <h4>1.Solid/Liquid Waste:</h4>
                                 <button class="btn-add">
@@ -816,6 +825,7 @@
                                 </label>
                                 <input type="text" name="treatmentMethodsLocation" class="form-control">
                             </div>
+                            <input type="number" hidden name="effluentWastewaterDischargesID">
                             <input type="text" hidden name="empty">
                         </form>
                     </div>
@@ -827,7 +837,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!--------------------------------------------- step 1 --------------------------------------------->
-                        <form name="NoiseForm" id="NoiseForm" class="_form form_group">
+                        <form name="NoiseForm" id="Noise" class="_form form_group">
                             <div class="address">
                                 <h4>1.Noise :</h4>
                                 <button class="btn-add">
@@ -857,11 +867,12 @@
                                 <label class="address-inp">Control Methods</label>
                                 <input type="text" name="controlMethods" class="form-control">
                             </div>
+                            <input type="number" hidden name="noiseID">
                             <input type="text" hidden name="empty">
                         </form>
 
                         <!--------------------------------------------- step 2------------------------------------------- -->
-                        <form name="FlareForm" id="FlareForm" class="_form form_group d-none">
+                        <form name="FlareForm" id="Flare" class="_form form_group d-none">
                             <div class="address">
                                 <h4>1.Flare :</h4>
                                 <button class="btn-add">
@@ -893,10 +904,11 @@
                                 <label class="address-inp">Steam Assisted/ Air Assisted</label>
                                 <input type="text" name="SteamAssistedAirAssisted" class="form-control">
                             </div>
+                            <input type="number" hidden name="flareID">
                             <input type="text" hidden name="empty">
                         </form>
                         <!--------------------------------------------- step 3 --------------------------------------------->
-                        <form name="IncineratorForm" id="IncineratorForm" class="_form form_group d-none">
+                        <form name="IncineratorForm" id="Incinerator" class="_form form_group d-none">
                             <div class="address">
                                 <h4>1.Incinerator :</h4>
                                 <button class="btn-add">
@@ -929,6 +941,7 @@
                                 </small>
                                 <input type="text" name="WastetobeBurnt" class="form-control">
                             </div>
+                            <input type="number" hidden name="incineratorID">
                             <input type="text" hidden name="empty">
                         </form>
                     </div>
@@ -940,7 +953,7 @@
                             <span class="bar-steps"></span>
                         </div>
                         <!-- STEP 1 -->
-                        <form name="DredgingOperationsForm" id="DredgingOperationsForm" class="_form form_group">
+                        <form name="DredgingOperationsForm" id="DredgingOperations" class="_form form_group d-none">
                             <div class="address">
                                 <h4>Dredging Operations </h4>
                             </div>
@@ -959,9 +972,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="number" hidden name="dredgingOperationsID">
+                            <input type="text" hidden name="empty">
                         </form>
                         <!-- Step 2 -->
-                        <form class="_form d-none">
+                        <form  name="DredgingOperationsForm" id="DredgingOperations" class="_form form_group d-none">
                             <div class="input_style">
                                 <label class="address-inp">Vehicle maintenance on site</label>
                                 <div class="radio">
@@ -1044,6 +1059,8 @@
                                 <label class="address-inp">Additional Information</label>
                                 <textarea class="form-control" name="additionalInformation" rows="3"></textarea>
                             </div>
+                            <input type="number" hidden name="otherInformationID">
+                            <input type="text" hidden name="empty">
                         </form>
                     </div>
 
@@ -1087,7 +1104,7 @@
     <!-- Popper -->
     <script src="../js/popper-utils.min.js.map"></script>
     <!-- main js -->
-    <script src="../js/DbActions.js"></script>
+    <!-- <script src="../js/DbActions.js"></script> -->
     <!-- script DOM -->
     <script src="../js/main.js" type="module"></script>
 </body>
