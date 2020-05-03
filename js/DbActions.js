@@ -1,3 +1,4 @@
+
 // MUST TRY TO GET ESQID FROM URL IN CASE OF UPDATED INFO
 var esqID = ""
 var url = 'http://localhost:5001/api';
@@ -16,37 +17,44 @@ var paths = {
     "Noise": "/Noise",
     "Flare": "/Flare",
     "Incinerator": "/Incinerator",
-    "LoadUnload": "/LoadUnload",
     "DredgingOperations": "/DredgingOperations",
     "OtherInformation": "/OtherInformation",
 }
-onClickSubmit()
-//Get next btn
-// btn = document.getElementById("Next")
-// btn.addEventListener('click', function () {
-//     onClickSubmit()
-// })
-export function onClickSubmit() {
+export function onClickDraft(){
+    console.log("draft")
+    handleSubmit()
+}
+
+export function onClickSubmit(){
+    handleSubmit().then(function (r){
+        esqID = r
+        console.log(r)
+        postData (url + `/EnvForm/api/v1/EnvForm/startWf?id=${r}`)
+    })
+}
+
+function handleSubmit() {
     try {
-        data = new FormData(document.getElementById("Env"))
+        var data = new FormData(document.getElementById("Env"))
         var jsonBody = setupObject(data)
         console.log("hi")
 
         for (var key in paths) {
             try {
                 data = new FormData(document.getElementById(key + "Form"))
-                jsonData = setupArrayData(data, key)
+                var jsonData = setupArrayData(data, key)
                 jsonBody[key] = jsonData
             } catch (e)
             {
+                console.log("failed at" , key)
                 console.log(e.stack)
             }
         }
         console.log(jsonBody)
         if (esqID === "")
-            esqID = postData(url + "/EnvForm", setupObject(data));
+            return postData(url + "/EnvForm", setupObject(data));
         else
-            updateData(url + "/EnvForm", data)
+            return updateData(url + "/EnvForm", data)
     }
     catch{
         console.log(`failed submit ${path} where`)
@@ -73,6 +81,10 @@ function setupArrayData(data) {
     var temp = new Object()
     for (var [key, value] of data.entries()) {
         if (key == "empty") {
+            if (esqID !== "")
+            {
+                temp.esqID = esqID
+            }
             tempArr.push(temp)
             temp = new Object()
         }else {
@@ -94,22 +106,28 @@ function setupArrayData(data) {
 
 //SEND REQUEST BLOCK
 function postData(path, body) {
+    return new Promise (function (resolve, reject){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", path, 1)
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300){
+                console.log("success")
+                resolve(xhr.response)
+            }
+            else{
+                console.log("fail")
+                reject(xhr.response)
+            }
+            // response = xhr.responseText
+            // console.log(this.responseText)
+    
+        }
+        xhr.send(JSON.stringify(body))
+        console.log(JSON.stringify(body))
+        return xhr.responseText
+    })
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", path, 1)
-    xhr.setRequestHeader("Content-type", "application/json");
-    xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300)
-            console.log("success")
-        else
-            console.log("fail")
-        // response = xhr.responseText
-        // console.log(this.responseText)
-
-    }
-    xhr.send(JSON.stringify(body))
-    // console.log(xhr.responseText)
-    return xhr.responseText
 }
 
 //SUBMIT ARRAY OF OBJECTS TEST

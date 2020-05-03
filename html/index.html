@@ -333,7 +333,7 @@
                                 <div class="input_style">
                                     <label class="address-inp">Annual Consumption<span
                                             class="text-muted">(unit)</span></label>
-                                    <input type="text" name="annualConsumption" class="form-control">
+                                    <input type="number" name="annualConsumption" class="form-control">
                                 </div>
                             </div>
                             <input type="text" hidden name="empty">
@@ -381,7 +381,7 @@
                                 <div class="input_style">
                                     <label class="address-inp">Annual Consumption<span
                                             class="text-muted">(unit)</span></label>
-                                    <input type="text" name="aAnnualConsumption" class="form-control">
+                                    <input type="number" name="aAnnualConsumption" class="form-control">
                                 </div>
                             </div>
                             <input type="text" hidden name="empty">
@@ -421,11 +421,11 @@
                             <div class="input-2">
                                 <div class="input_style">
                                     <label class="address-inp">Storage/ Delivery Method</label>
-                                    <input type="number" name="storageDeliveryMethod" class="form-control">
+                                    <input type="text" name="storageDeliveryMethod" class="form-control">
                                 </div>
                                 <div class="input_style">
                                     <label class="address-inp">Maximum Storage Capacity</label>
-                                    <input type="text" name="maximumStorageCapacity" class="form-control">
+                                    <input type="number" name="maximumStorageCapacity" class="form-control">
                                 </div>
                             </div>
                             <input type="text" hidden name="empty">
@@ -461,7 +461,7 @@
                             <div class="input-2">
                                 <div class="input_style">
                                     <label class="address-inp">Process/ Unit Used</label>
-                                    <input type="text" name="processUnitUsed" class="form-control">
+                                    <input type="number" name="processUnitUsed" class="form-control">
                                 </div>
                                 <div class="input_style">
                                     <label class="address-inp">Maximum Storage Quantity<span class="text-mute">
@@ -473,7 +473,7 @@
                             <div class="input-2">
                                 <div class="input_style">
                                     <label class="address-inp">Delivery/ Storage Method</label>
-                                    <input type="number" name="deliveryStorageMethod" class="form-control">
+                                    <input type="text" name="deliveryStorageMethod" class="form-control">
                                 </div>
                                 <div class="input_style">
                                     <label class="address-inp">Surplus Disposal Method</label>
@@ -563,7 +563,7 @@
                                             (unit&sup2;)
                                         </span>
                                     </label>
-                                    <input type="number" name="pollutantConcentration" class="form-control">
+                                    <input type="text" name="pollutantConcentration" class="form-control">
                                 </div>
                             </div>
                             <div class="input-2">
@@ -1051,6 +1051,7 @@
                     <!-- container btns next , previous -->
                     <div class="btns">
                         <button id="prev" class="disabled">Previous</button>
+                        <button style="background-color: #f59813 " id="draft">Save as draft</button>
                         <button id="next">Next</button>
                     </div>
                 </div>

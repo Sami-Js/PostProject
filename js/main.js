@@ -8,7 +8,7 @@ import {
   Effect,
 } from "./_moduler_func.js";
 
-import { onClickSubmit } from "./DbActions";
+import { onClickSubmit, onClickDraft } from "./DbActions.js";
 
 // main counter for switch slide parent
 let currentParent = 0;
@@ -39,6 +39,7 @@ function forwardSlide() {
     currentChild >= slide.length - 1
   ) {
     console.log("submit")
+    onClickSubmit()
     return;
   }
 
@@ -70,9 +71,10 @@ function forwardSlide() {
 }
 
 const next = $("next");
+const draft = $("draft")
 // btn fire next func
 next.addEventListener("click", forwardSlide);
-
+draft.addEventListener("click", onClickDraft)
 //  func slide backwarde
 function backwardSlide() {
   if (currentParent <= 0 && currentChild <= 0) return;
